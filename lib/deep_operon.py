@@ -904,8 +904,7 @@ class CNN:
 
     # load an training model
     def load(self, name, mode='2d'):
-        #model = keras.models.load_model(name, custom_objects={'f1_score': f1_score, 'tf': tf, 'fbeta_score': f1_score})
-        model = keras.models.load_model(name, custom_objects={'f1_score': f1_score, 'fbeta_score': f1_score})
+        model = keras.models.load_model(name, custom_objects={'f1_score': f1_score, 'fbeta_score': f1_score}, compile=False)
         if mode == '2d' or mode == 'lstm':
             self.model_2d = model
         else:
