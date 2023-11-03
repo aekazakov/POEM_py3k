@@ -7,7 +7,6 @@ SCRIPT=`realpath -s $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 # set the path for the python
-lpython=python
 python=python
 
 #######################################
@@ -43,11 +42,7 @@ done
 fasta=$temp/input.fsa
 $python $SCRIPTPATH/../lib/prod2gmk.py $fasta\_prod_aa.fsa > $fasta\_gmk_aa.fsa
 $python $SCRIPTPATH/../lib/reid.py $fasta\_gmk_aa.fsa > $fasta\_aa.fsa
-#touch $fasta\.cog
-
-echo 'step 5: Operonic adjacency prediction...'
 $python $SCRIPTPATH/../lib/to_list.py $fasta\_aa.fsa > $fasta\.locus
-echo "$lpython $SCRIPTPATH/../lib/deep_operon.py predict $fasta $fasta\.locus $SCRIPTPATH/../config/Operon_Predictor/model.hdf5 > $fasta\.adjacency"
-$lpython $SCRIPTPATH/../lib/deep_operon.py predict $fasta $fasta\.locus $SCRIPTPATH/../config/Operon_Predictor/model.hdf5 > $fasta\.adjacency
-#$lpython $SCRIPTPATH/../lib/adj2operon.py $fasta\.adjacency $fasta\.cog > $fasta\.operon
+$python $SCRIPTPATH/../lib/predict_operon.py predict $fasta $fasta\.locus $SCRIPTPATH/../config/Operon_Predictor/model.hdf5 > $fasta\.adjacency
+
 
