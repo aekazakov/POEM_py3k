@@ -1,4 +1,4 @@
-This is a limited version of the POEM pipeline which can only predict operons in genome assemblies. This version was created for predicting operons in Comparative Genomic Content Management System. It cannot train operon models or work with metagenomes and short reads. Full version is available at [https://github.com/Rinoahu/POEM_py3k]
+This is a modified version of the POEM pipeline with limited functionality, which can only predict operons in genome assemblies. This version was created for predicting operons in Comparative Genomic Content Management System. It can neither train operon models nor work with metagenomes and short reads. Full version is available at [https://github.com/Rinoahu/POEM_py3k]
 
 
 ## Requirements
